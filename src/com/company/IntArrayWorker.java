@@ -1,41 +1,73 @@
 package com.company;
 
-public class IntArrayWorker
-{
-  /** two dimensional matrix */
+public class IntArrayWorker {
+  /**
+   * two dimensional matrix
+   */
   private int[][] matrix = null;
-  
-  /** set the matrix to the passed one
-    * @param theMatrix the one to use
-    */
-  public void setMatrix(int[][] theMatrix)
-  {
+
+  /**
+   * set the matrix to the passed one
+   *
+   * @param theMatrix the one to use
+   */
+  public void setMatrix(int[][] theMatrix) {
     matrix = theMatrix;
   }
-  
+
   /**
-   * Method to return the total 
+   * Method to return the total
+   *
    * @return the total of the values in the array
    */
-  public int getTotal()
-  {
+  public int getTotal() {
     int total = 0;
-    for (int row = 0; row < matrix.length; row++)
-    {
-      for (int col = 0; col < matrix[0].length; col++)
-      {
+    for (int row = 0; row < matrix.length; row++) {
+      for (int col = 0; col < matrix[0].length; col++) {
         total = total + matrix[row][col];
       }
     }
     return total;
   }
-  
+
+  public int getLargest() {
+    int largVal = 0;
+    for (int row = 0; row < matrix.length; row++) {
+      for (int column = 0; column < matrix[0].length; column++) {
+        if (matrix[row][column] > largVal)
+          largVal = matrix[row][column];
+      }
+    }
+    return largVal;
+  }
+  public int getColTotal(int b)
+  {
+    int total = 0;
+    for(int row = 0; row<matrix.length; row++)
+      total = total + matrix[row][b];
+    return total;
+  }
+
+
+
+  public int getCount(int a) {
+    int count = 0;
+    for (int row = 0; row < matrix.length; row++) {
+      for (int col = 0; col < matrix[0].length; col++) {
+        if (matrix[row][col] == a)
+          count++;
+      }
+    }
+      return count;
+
+  }
+
   /**
    * Method to return the total using a nested for-each loop
    * @return the total of the values in the array
    */
   public int getTotalNested()
-  {
+    {
     int total = 0;
     for (int[] rowArray : matrix)
     {
@@ -67,7 +99,7 @@ public class IntArrayWorker
   /**
    * print the values in the array in rows and columns
    */
-  public void print()
+ public void print()
   {
     for (int row = 0; row < matrix.length; row++)
     {
@@ -84,7 +116,7 @@ public class IntArrayWorker
   /** 
    * fill the array with a pattern
    */
-  public void fillPattern1()
+ public void fillPattern1()
   {
     for (int row = 0; row < matrix.length; row++)
     {
